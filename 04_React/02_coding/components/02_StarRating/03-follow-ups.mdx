@@ -1,0 +1,14 @@
+### Follow up QnA
+
+- What further improvements you can make?
+  - Maybe the star input can be converted into a standard web `input` which can be used to submit a form
+- What are the current edge cases or issues in your current code?
+  - Current solution does not have a11y support
+  - This currently only supports LTR and does not have RTL support
+
+### Test Cases:
+
+- What will be the tests you will write for this component?
+  - When user clicks on a star and moves away the stars to the left of it including itself should be highlighted
+  - when user hovers over a star, every star under the cursor and to it's left should be highlighted
+  - Render multiple StarRating components to make sure they are reusable in a single parent component
