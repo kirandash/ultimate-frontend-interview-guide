@@ -1,0 +1,29 @@
+## solution
+
+```
+const formatPhNumber = (phNumberRaw: string) => {
+  // remove non digits
+  // format the ph number
+
+  let output = "";
+  // capital D: non digits, small d: digits
+  const str = phNumberRaw.replace(/[^\d+]/g, "");
+
+  // formatting
+  if (str.length > 0) {
+    output += "(";
+    output += str.substring(0, 3);
+  }
+
+  if (str.length > 3) {
+    output += ") ";
+    output += str.substring(3, 7);
+  }
+
+  if (str.length > 7) {
+    output += " ";
+    output += str.substring(7, 11);
+  }
+  return output;
+};
+```
