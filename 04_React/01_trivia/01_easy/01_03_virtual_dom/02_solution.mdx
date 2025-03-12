@@ -1,0 +1,13 @@
+### What is Virtual DOM?
+
+- Virtual DOM is one of the core features of React that makes it super fast compared to other frameworks or libraries
+- [Definition](https://en.wikipedia.org/wiki/Virtual_DOM#:~:text=A%20virtual%20DOM,coupled%20with%20state.): Virtual DOM is a lightweight JS representation of the DOM used in declarative web frameworks such as React, Vue.js and Elm.
+  - Updating Virtual DOM is comparatively faster than updating actual DOM via JS.
+  - libraries like jQuery make updates directly on the DOM hence it can be expensive
+- React updates the virtual DOM and keeps track of the state and then reconciles all the update and updates the final DOM
+
+### Virtual DOM vs Shadow DOM?
+
+- Virtual DOM is for web frameworks like react and vue which creates a lightweight JS DOM representation. while shadow DOM is not specific to frameworks but is available at the browser level.
+- [Definition of Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM): Shadow DOM allows hidden DOM trees that can be attached to any element in a regular DOM tree.
+  - The shadow DOM tree normally starts with a shadow root and underneath that we can attach any element similar to the way we attach in normal DOM.
