@@ -35,6 +35,7 @@ const formatPhNumber = (phNumberRaw: string) => {
   // formatting
   if (str.length > 0) {
     output += "(";
+    // Note that substring fn will not include the char at 3 in the output
     output += str.substring(0, 3);
   }
 
@@ -45,6 +46,7 @@ const formatPhNumber = (phNumberRaw: string) => {
 
   if (str.length > 7) {
     output += " ";
+    // After 11 rest of the strings will be ignored
     output += str.substring(7, 11);
   }
   return output;
