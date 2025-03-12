@@ -1,0 +1,12 @@
+## useFetch(url)
+
+### Description
+
+- Create a custom react hook called `useFetch(url)` which on mount should make a `fetch` call to the url. The useFetch should update whenever the url updates.
+- After the fetch call the useFetch should return three values: the JSON response, loading state, error state
+
+### Discuss about edge cases
+
+- Since the fetch call will be made when url updates we need to set is loading as true again
+- REMEMBER TO RESET Error and ResponseJSON
+- Should abort or cancel the fetch call on unmount and stop setState actions in fetch call above
