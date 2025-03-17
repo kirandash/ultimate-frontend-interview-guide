@@ -1,0 +1,13 @@
+## Post Solution
+
+### Big O:
+
+- Time complexity (Same as the previous non-recursive approach):
+  - O(log(n)): worst and avg
+    - worst case is when target is at the edge
+    - it is log(n) because it keeps dividing the input by 1/2 every iteration
+  - O(1): best case when the target is at the mid idx
+  - Note: Binary search assumes that input is sorted. but if input is not sorted then we might need additional time complexity to sort it first.
+- Space complexity:
+  - O(log(n))
+    - recursion call stack will take O(log(n)) as space complexity. because height of the recursion tree is log(n) + 1

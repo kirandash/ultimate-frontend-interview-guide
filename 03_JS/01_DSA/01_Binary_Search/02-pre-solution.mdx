@@ -1,0 +1,29 @@
+## solution
+
+### Revision - Binary Search
+
+Binary search is a search algo that helps us efficiently find the index of an element in an array. It does so by repeatedly dividing the input array into halves until the target elem is found. Hence it decreases the search space by half each step. And is significantly better than a linear search.
+
+#### Steps:
+
+- Calc the mid index of array and find the mid elem
+- if target is > mid then search right half
+- if target < mid then search left half
+- if target = mid then return index of mid
+- repeat till we complete the search
+- return -1 if not found
+
+### Clarification Question:
+
+- Arr input is sorted in asc or desc order?
+- Should the data be sorted in place or is it acceptable to use additional DS?
+- What inputs we have?
+  - do we have negative integers?
+  - do we only handle integers or should i care about other data types?
+
+### More examples or test scenario (Before coding the solution):
+
+```
+console.log(binarySearch([], 56)); // -1
+console.log(binarySearch([1], 1)) // 0
+```

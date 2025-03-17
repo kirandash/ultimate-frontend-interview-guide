@@ -1,0 +1,19 @@
+## Post Solution
+
+### Big O:
+
+- Time complexity:
+  - O(log(n)): worst and avg
+    - worst case is when target is at the edge
+    - it is log(n) because it keeps dividing the input by 1/2 every iteration
+  - O(1): best case when the target is at the mid idx
+  - Note: Binary search assumes that input is sorted. but if input is not sorted then we might need additional time complexity to sort it first.
+- Space complexity:
+  - O(1)
+    - because we are not using any additional memory beside the input
+
+### Edge Cases:
+
+- Non-integer elements in input array
+  - handle it by showing error as invalid input
+  - or if must allow non-integer array then I will write a custom comparison for non-integer.
