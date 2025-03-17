@@ -1,0 +1,39 @@
+## promisify(callback)
+
+### Level: Easy, Duration: 10 Minutes, Languages: JS, TS, Frequency: 4/5
+
+### Description
+
+- Create a custom fn: `promisify` that will accept a callback fn as argument and then converts it into a promise
+
+### Example
+
+```
+const asyncTask = (num, callback) => {
+  setTimeout(() => {
+    if (num < 0) {
+      callback(new Error("number can't be neagative"), null);
+    } else if (num >= 0) {
+      callback(null, num * 2);
+    }
+  }, 1000);
+};
+
+const asyncTaskPromisified = promisify(asyncTask);
+
+asyncTaskPromisified(5)
+  .then((result) => {
+    console.log("Success:", result); // 10
+  })
+  .catch((error) => {
+    console.error("Errro:", error);
+  });
+
+asyncTaskPromisified(-2)
+  .then((result) => {
+    console.log("Success:", result);
+  })
+  .catch((error) => {
+    console.error("Error:", error); // Error
+  });
+```
