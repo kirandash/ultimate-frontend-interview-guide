@@ -1,0 +1,47 @@
+## Throttle
+
+### Level: Medium, Duration: 15 Minutes, Languages: JS, TS, Frequency: 5/5
+
+### Description
+
+Implement a throttle fn which accepts a callback fn and a delay. Calling this fn should create throttled invocations of the callback.
+
+Definition: It is a technique which is used to control how many times a callback fn should be executed over a period of time. When a fn is throttled, it executes immediately and waits for the delay and executes again after the delay. And in between if there is any call, it will be ignored.
+
+### Examples
+
+```
+  const increment = (() => {
+    let count = 0;
+    return () => {
+      count++;
+      console.log(count)
+    }
+  })();
+
+  const throttledIncrement = throttle(increment, 1000)
+
+  throttledIncrement(); // log 1
+
+  setTimeout(() => {
+    throttledIncrement()
+  }, 400) // not log anything since we are calling before 1000 ms has passed
+
+  setTimeout(() => {
+    throttledIncrement()
+  }, 1200) // will log 2 since we are calling after 1000ms has passed
+
+  setTimeout(() => {
+    throttledIncrement()
+  }, 1600) // not log anything because we already called once for the last 1000 ms delay
+
+  setTimeout(() => {
+    throttledIncrement()
+  }, 3600) // will log 3 since no call has been made in the last 1000 ms interval
+
+  setTimeout(() => {
+    throttledIncrement()
+  }, 3800) // should not log anything
+
+  // It should log 1, 2, 3
+```

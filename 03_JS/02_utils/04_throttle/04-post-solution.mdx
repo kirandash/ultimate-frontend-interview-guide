@@ -1,0 +1,13 @@
+## Post Solution
+
+### Edge Cases
+
+- I made sure to pass both `this` context and the args using `.apply()`
+- 🚨 Please use normal fn as the returned fn of throttle because if we use arrow fn then it will loose context of `this`
+
+### Resources:
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call
+- https://www.geeksforgeeks.org/difference-between-debouncing-and-throttling/
+- https://www.geeksforgeeks.org/javascript-throttling/

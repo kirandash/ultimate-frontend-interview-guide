@@ -1,0 +1,60 @@
+## solution
+
+### Revision - Throttle
+
+#### Steps:
+
+### Clarification Question:
+
+### More examples or test scenario (Before coding the solution):
+
+- debounce fn should execute only once even after calling it multiple times
+
+```
+  const increment = (() => {
+    let count = 0;
+    return () => {
+      count++;
+      console.log(count)
+    }
+  })();
+
+  const throttledIncrement = throttle(increment, 1000)
+
+  throttledIncrement(); // log 1
+  throttledIncrement(); // not log anything
+  throttledIncrement(); // not log anything
+  throttledIncrement(); // not log anything
+  throttledIncrement(); // not log anything
+```
+
+- callbacks should be able to access `this` keyword
+
+```
+const increment = throttle(function (delta) {
+  this.value += delta;
+}, 500);
+
+const obj = {
+  value: 5,
+  increment,
+}
+
+console.log('Start:', obj.value); // 5
+obj.increment(3);
+console.log('After first increment call:', obj.value); // 8
+
+setTimeout(() => {
+  obj.increment(4);
+  console.log('Before second increment call:',obj.value); // 12
+}, 900)
+
+// 5, 8, 12
+```
+
+### Techniques to be used:
+
+- setTimeout
+- closure
+- `this` keyword with regular fn
+- `Function.prototype.apply()` or `Function.prototype.call()`
