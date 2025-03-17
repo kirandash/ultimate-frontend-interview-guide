@@ -1,0 +1,40 @@
+## What is a smart component in react?
+
+### Description
+
+- Smart aka Container component vs Dumb aka Presentational component
+- Smart/Container Component:
+  - A component that has some state or some business logic
+- Presentational Component:
+  - Which just returns some JSX to render
+  - does not have any state
+
+### Example
+
+- Smart:
+
+```
+const Button = () => {
+  const [count, setCount] = useState();
+
+  return (<>
+    <label>{count}</label>
+    <button onClick={(prevCount)=>setCount(prevCount++)}>Increment</button>
+  </>)
+}
+```
+
+- Dumb:
+
+```
+const Button = ({text}) => {
+
+  return (
+    <button>{text}</button>
+  )
+}
+```
+
+### Resources
+
+- https://medium.com/@abubakarmemon/dumb-smart-components-in-react-0d19e2653398#:~:text=Dumb%20components%20handle%20UI%20rendering,testability%20of%20your%20React%20components.
