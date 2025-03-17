@@ -1,0 +1,48 @@
+## Debounce
+
+### Level: Medium, Duration: 15 Minutes, Languages: JS, TS
+
+### Description
+
+- A debounce fn is used to create a delay to the exec of a fn till a certain amount of time has passed without any new calls to the fn.
+- It is used to optimise performance by reducing the number of fn calls in response to a frequent event
+  - ex: call an API when user types into a form input
+  - ex: do something expensive when user scrolls
+
+### Examples
+
+```
+  const increment = (() => {
+    let count = 0;
+    return () => {
+      count++;
+      console.log(count)
+    }
+  })();
+
+  const debouncedIncrement = debounce(increment, 1000)
+
+  debouncedIncrement(); // not log anything
+
+  setTimeout(() => {
+    debouncedIncrement()
+  }, 400) // not log anything since the next call at 1200 is made before the 1000 is finished
+
+  setTimeout(() => {
+    debouncedIncrement()
+  }, 1200) // will log since the next call is at 2500 i.e. 2500 - 1200 = 1300 > 1000
+
+  setTimeout(() => {
+    debouncedIncrement()
+  }, 2500) // will log since the next call is at 3600 i.e. 3600 - 2500 = 1100 > 1000
+
+  setTimeout(() => {
+    debouncedIncrement()
+  }, 3600) // will not log since the next call is at 3800 i.e. 3800 - 3600 = 200 < 1000
+
+  setTimeout(() => {
+    debouncedIncrement()
+  }, 3800) // should increment after 1000ms since there is no call after this
+
+  // It should log 1, 2, 3
+```

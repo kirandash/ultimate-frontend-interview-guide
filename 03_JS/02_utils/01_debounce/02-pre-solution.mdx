@@ -1,0 +1,69 @@
+## solution
+
+### Revision - Debounce
+
+#### Steps:
+
+### Clarification Question:
+
+### More examples or test scenario (Before coding the solution):
+
+- debounce fn should execute only once even after calling it multiple times
+
+```
+  const increment = (() => {
+    let count = 0;
+    return () => {
+      count++;
+      console.log(count)
+    }
+  })();
+
+  const debouncedIncrement = debounce(increment, 1000)
+
+  debouncedIncrement(); // not log anything
+  debouncedIncrement(); // not log anything
+  debouncedIncrement(); // not log anything
+  debouncedIncrement(); // not log anything
+  debouncedIncrement(); // log increment after 1000 ms
+```
+
+- callbacks should be able to access `this` keyword
+
+```
+const increment = debounce(function (delta) {
+  this.value += delta;
+}, 500);
+
+const obj = {
+  value: 5,
+  increment,
+}
+
+console.log('Start:', obj.value); // 5
+obj.increment(3); // this will be cancelled because of the next call happening before 500
+console.log('After first increment call:', obj.value); // 5
+
+setTimeout(() => {
+  console.log('At 700ms:', obj.value); // 8
+}, 700)
+
+setTimeout(() => {
+  obj.increment(4);
+}, 900)
+
+console.log('Before second increment call:',obj.value); // 5
+
+setTimeout(() => {
+  console.log('At 1500ms:', obj.value); // 12
+}, 1500)
+
+// 5, 5, 5, 8, 12
+```
+
+### Techniques to be used:
+
+- setTimeout
+- closure
+- `this` keyword
+- `Function.prototype.apply()` or `Function.prototype.call()`
