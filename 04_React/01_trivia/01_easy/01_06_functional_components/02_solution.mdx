@@ -1,0 +1,29 @@
+## What is a functional component in react?
+
+- Functional component is a function that returns a JSX markup.
+- Functional component does not have it'w own state. It just renders some JSX. We will discuss `useState` later but it is not built in functional component.
+  - Any variables that are inside will be initialized and destroyed with it.
+- It has been popularized recently over class based components because of how flexible and composable and lean it is by default.
+
+### Examples
+
+```
+const Button = (props) => {
+  return <button>{props.content ?? "Click me!"}</button>
+}
+
+const Label = ({ text = 'No Label' }) => {
+  return <label>{text}</label>
+}
+
+const App = () => {
+  return <div>
+    <Label text={'exit'} />
+    <Button content="Close" />
+  </div>;
+}
+```
+
+### Resources
+
+- https://react.dev/learn/your-first-component#defining-a-component
