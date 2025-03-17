@@ -1,0 +1,121 @@
+## What is hoisting in JS?
+
+### Description
+
+Hoisting is a mechanism in which variables and fn declarations are hoisted to the top of their containing scope during compilation.
+
+- Old:
+
+  - var: declaration is hoisted but not initialization. trying to access before declaration will return `undefined`
+  - function expression (`var`): same as var: declaration is hoisted but not initialization. trying to access before declaration will return `undefined`
+    - ex: `var myFn = function() { ... }`
+  - function declaration ('function`): both declaration and init are hoisted.
+    - ex: `function myFn() { ... }`
+
+- ES:
+  - `let` and `const`: declaration is hoisted but not initialization. trying to access before declaration will throw a `ReferenceError`
+  - `class`: same as last: declaration is hoisted but not initialization. trying to access before declaration will throw a `ReferenceError`
+  - `import`: decl is hoisted. and all the side effects of module imports will be executed before rest of the code
+
+### In depth examples:
+
+- var:
+  ex:
+
+  ```js
+  console.log(a); // undefined
+  var a = 1;
+  console.log(a); // 1
+  ```
+
+  is equivalent to
+
+  ```js
+  var a;
+  console.log(a); // undefined
+  a = 1;
+  console.log(a); // 1
+  ```
+
+- fn expression (var)
+  ex:
+
+  ```js
+  console.log(hello); // undefined
+  hello(); // Uncaught TypeError: hello is not a function
+  var hello = function () {
+    console.log("hello world");
+  };
+  hello(); // hello world
+  ```
+
+  is equivalent to
+
+  ```js
+  var hello;
+  console.log(hello); // undefined
+  hello(); // type error
+  hello = function () {
+    console.log("hello world");
+  };
+  hello(); // hello world
+  ```
+
+- function declaration
+  ex:
+
+  ```js
+  console.log(hello); // [Function: hello]
+  hello(); // hello world
+  function hello() {
+    console.log("hello world");
+  }
+  hello(); // hello world
+  ```
+
+  is equivalent to
+
+  ```js
+  var hello = function () {
+    console.log("hello world");
+  };
+  console.log(hello); // [Function: hello]
+  hello(); // hello world
+
+  hello(); // hello world
+  ```
+
+- let and const
+  ex:
+
+```js
+console.log(x); // ReferenceError: Can not access x before their initialization
+let x = 1;
+```
+
+```js
+console.log(x); // ReferenceError: Can not access x before their initialization
+const x = 1;
+```
+
+- class
+  ex:
+
+```js
+console.log(Greet); // ReferenceError: Can not access x before their initialization
+
+class Greet {
+  constructor() {}
+}
+```
+
+- import
+
+```js
+lodash.doSomething(); // work normally
+import lodash from "./modules/lodash";
+```
+
+### Resources
+
+- https://react.dev/reference/react/Fragment
