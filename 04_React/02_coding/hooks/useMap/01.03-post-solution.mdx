@@ -1,0 +1,9 @@
+## Post solution
+
+### Solution
+
+- Note: We should not return map and all the fns directly from useMap because they are just fns and they will update the map itself but there is no way for react to know that the fn is called and map is updated hence we need to create custom wrapper fns around the native map and map fns so that react knows about the updates and re-renders properly
+
+### Resources
+
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map
