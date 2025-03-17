@@ -1,0 +1,48 @@
+## What is a class component in react?
+
+### Description
+
+- it is an old approach and has been deprecated. Not recommended way anymore to use class components. So use fn components instead.
+- some older project might still have class components
+- Class component has it's own state as compared to fn components which does not have it's own state
+- Class component has life cycle hooks ex: componentDidMount(), componentDidUpdate() etc whereas in fn you don't have life cycle hooks by default but you can use additional useEffect etc to get this life cycle hooks
+- Cons:
+  - It is more complex
+  - Has a lot of life cycle hooks by default
+  - Not lightweight compared to fn component
+
+### Example
+
+```
+class Button extends React.Component {
+  render() { return <button>{this.props.content ?? "Click me!"}</button> }
+}
+
+class Label extends React.Component {
+  state = {
+    error: false
+  }
+  render() { return <label className={this.state.error ? 'error' : ''} onClick={() => this.setState({
+    error: true
+  })}>
+    {this.props.text}
+    </label>
+  }
+}
+
+class App extends React.Component {
+  componentDidMount() {
+    console.log("App mounted");
+  }
+  render () {
+     return <div>
+      <Label text={'exit'} />
+      <Button content="Close" />
+    </div>;
+  }
+}
+```
+
+### Resources
+
+- https://react.dev/reference/react/Component
