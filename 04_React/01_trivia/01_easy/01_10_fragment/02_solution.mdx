@@ -1,0 +1,32 @@
+## What is react fragment?
+
+### Description
+
+- A react fragment allows us to group elements without a wrapper node
+- Syntax:
+  - `<></>`
+  - `<React.Fragment></React.Fragment>
+
+### Example
+
+```jsx
+const App = () => {
+  const tasks = [
+    { id: "1", title: "Get a haircut" },
+    { id: "2", title: "Get groceries" },
+  ];
+
+  return (
+    {tasks.map((task, idx) => (
+      <>
+        <div key={task.id}>{task.title} This is Correct ✅</div>
+        <div key={idx}>{task.title} This is Wrong ❌</div>
+      </>
+    ))}
+  );
+};
+```
+
+### Resources
+
+- https://react.dev/reference/react/Fragment
