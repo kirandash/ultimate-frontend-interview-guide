@@ -1,0 +1,33 @@
+## What is conditional rendering in react?
+
+### Description
+
+- This allows us to conditionally render some JSX in react
+
+### Example
+
+```jsx
+const MainContent = ({ isFetching }) => {
+  return (
+    <>
+      {tasks.map((task, idx) => (
+        <>
+          <div key={task.id}>{task.title} This is Correct ✅</div>
+          <div key={idx}>{task.title} This is Wrong ❌</div>
+        </>
+      ))}
+      <button>{isFetching ? "Submitting" : "Submit"}</button>
+    </>
+  );
+};
+
+const App = () => {
+  const isFetching = true;
+
+  if (isFetching) return <div>Loading...</div> ? <MainContent isFetching={isFetching} />;
+};
+```
+
+### Resources
+
+- https://react.dev/reference/react/Fragment
