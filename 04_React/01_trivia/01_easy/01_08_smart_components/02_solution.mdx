@@ -13,26 +13,25 @@
 
 - Smart:
 
-```
+```jsx
 const Button = () => {
   const [count, setCount] = useState();
 
-  return (<>
-    <label>{count}</label>
-    <button onClick={(prevCount)=>setCount(prevCount++)}>Increment</button>
-  </>)
-}
+  return (
+    <>
+      <label>{count}</label>
+      <button onClick={(prevCount) => setCount(prevCount++)}>Increment</button>
+    </>
+  );
+};
 ```
 
 - Dumb:
 
-```
-const Button = ({text}) => {
-
-  return (
-    <button>{text}</button>
-  )
-}
+```jsx
+const Button = ({ text }) => {
+  return <button>{text}</button>;
+};
 ```
 
 ### Resources

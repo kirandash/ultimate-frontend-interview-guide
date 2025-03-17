@@ -13,20 +13,30 @@
 
 ### Example
 
-```
+```jsx
 class Button extends React.Component {
-  render() { return <button>{this.props.content ?? "Click me!"}</button> }
+  render() {
+    return <button>{this.props.content ?? "Click me!"}</button>;
+  }
 }
 
 class Label extends React.Component {
   state = {
-    error: false
-  }
-  render() { return <label className={this.state.error ? 'error' : ''} onClick={() => this.setState({
-    error: true
-  })}>
-    {this.props.text}
-    </label>
+    error: false,
+  };
+  render() {
+    return (
+      <label
+        className={this.state.error ? "error" : ""}
+        onClick={() =>
+          this.setState({
+            error: true,
+          })
+        }
+      >
+        {this.props.text}
+      </label>
+    );
   }
 }
 
@@ -34,11 +44,13 @@ class App extends React.Component {
   componentDidMount() {
     console.log("App mounted");
   }
-  render () {
-     return <div>
-      <Label text={'exit'} />
-      <Button content="Close" />
-    </div>;
+  render() {
+    return (
+      <div>
+        <Label text={"exit"} />
+        <Button content="Close" />
+      </div>
+    );
   }
 }
 ```

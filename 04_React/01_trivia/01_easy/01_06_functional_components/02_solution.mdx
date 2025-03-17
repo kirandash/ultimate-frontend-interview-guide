@@ -7,21 +7,23 @@
 
 ### Examples
 
-```
+```jsx
 const Button = (props) => {
-  return <button>{props.content ?? "Click me!"}</button>
-}
+  return <button>{props.content ?? "Click me!"}</button>;
+};
 
-const Label = ({ text = 'No Label' }) => {
-  return <label>{text}</label>
-}
+const Label = ({ text = "No Label" }) => {
+  return <label>{text}</label>;
+};
 
 const App = () => {
-  return <div>
-    <Label text={'exit'} />
-    <Button content="Close" />
-  </div>;
-}
+  return (
+    <div>
+      <Label text={"exit"} />
+      <Button content="Close" />
+    </div>
+  );
+};
 ```
 
 ### Resources
